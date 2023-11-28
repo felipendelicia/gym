@@ -17,9 +17,11 @@ export default function Navigation() {
         screenOptions={{
           tabBarStyle: {
             backgroundColor: theme.color.black,
-            height: 90,
+            borderTopColor: "#00000000", // Removing little white border in the top
+            height: 100,
           },
           tabBarShowLabel: false,
+          headerShown: false,
         }}
       >
         <Tab.Screen

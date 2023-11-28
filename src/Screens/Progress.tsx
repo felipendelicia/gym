@@ -1,10 +1,11 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import React from "react";
+import TabContainer from "../components/TabContainer";
+import { Text } from "react-native";
 
 export default function Progress() {
-    return (
-        <View>
-            <Text>Progress</Text>
-        </View>
-    )
+  return (
+    <TabContainer>
+      <Text>a</Text>
+    </TabContainer>
+  );
 }

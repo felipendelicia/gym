@@ -1,6 +1,6 @@
 import { View, Image, Text, StyleSheet } from "react-native";
 import theme from "../../theme";
-import { Animated } from "react-native";
+import StyledText from "../StyledText";
 
 interface TabItemI {
   focused: boolean;
@@ -17,13 +17,15 @@ export function TabItem(props: TabItemI) {
       }}
     >
       <Image source={props.icon} resizeMode="contain" style={styles.image} />
-      <Text
-        style={{
+      <StyledText
+        small
+        aditionalStyles={{
           color: props.focused ? theme.color.white : theme.color.black,
+          fontFamily: "ubuntu-light",
         }}
       >
         {props.name}
-      </Text>
+      </StyledText>
     </View>
   );
 }
@@ -34,7 +36,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     top: 10,
-    gap: 5,
+    gap: 10,
     borderRadius: theme.borderRadius,
     paddingTop: 10,
     paddingBottom: 10,

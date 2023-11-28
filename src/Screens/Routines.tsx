@@ -1,10 +1,11 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import { Text } from "react-native";
+import React from "react";
+import TabContainer from "../components/TabContainer";
 
 export default function Routines() {
-    return (
-        <View>
-            <Text>Routines</Text>
-        </View>
-    )
+  return (
+    <TabContainer>
+      <Text>Routines</Text>
+    </TabContainer>
+  );
 }
