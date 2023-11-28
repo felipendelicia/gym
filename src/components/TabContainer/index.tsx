@@ -6,7 +6,7 @@ export default function TabContainer({ children }: { children: any }) {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
-        <View>{children}</View>
+        <View style={styles.view}>{children}</View>
       </ScrollView>
     </SafeAreaView>
   );
@@ -20,5 +20,8 @@ const styles = StyleSheet.create({
     paddingBottom: 15,
     paddingLeft: 10,
     paddingRight: 10,
+  },
+  view: {
+    gap: 15,
   },
 });

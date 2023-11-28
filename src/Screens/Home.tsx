@@ -6,10 +6,7 @@ export default function Home() {
   return (
     <TabContainer>
       <StyledText big bold>
-        Tus entrenamientos
-      </StyledText>
-      <StyledText big bold>
-        Tus rutinas
+        Ultimos entrenamientos
       </StyledText>
     </TabContainer>
   );

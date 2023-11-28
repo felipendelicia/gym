@@ -21,11 +21,11 @@ export default function Navigation() {
             height: 100,
           },
           tabBarShowLabel: false,
-          headerShown: false,
+          //headerShown: false,
         }}
       >
         <Tab.Screen
-          name="Inicio"
+          name="Home"
           component={Home}
           options={{
             tabBarIcon: ({ focused }) => {
@@ -40,7 +40,7 @@ export default function Navigation() {
           }}
         />
         <Tab.Screen
-          name="Rutinas"
+          name="Routines"
           component={Routines}
           options={{
             tabBarIcon: ({ focused }) => {
@@ -55,7 +55,7 @@ export default function Navigation() {
           }}
         />
         <Tab.Screen
-          name="Progreso"
+          name="Progress"
           component={Progress}
           options={{
             tabBarIcon: ({ focused }) => {
