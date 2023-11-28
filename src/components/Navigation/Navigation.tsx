@@ -1,37 +1,73 @@
-import React from 'react'
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import Home from '../../Screens/Home'
-import Routines from '../../Screens/Routines'
-import Progress from '../../Screens/Progress'
-import { View, Text, StyleSheet } from 'react-native'
-import theme from '../../theme'
+import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import Home from "../../Screens/Home";
+import Routines from "../../Screens/Routines";
+import Progress from "../../Screens/Progress";
+import theme from "../../theme";
+import { Image, View, Text } from "react-native";
+import { TabItem } from "./components";
 
-
-function TabItem({ name, icon }: { name: string, icon: any }) {
-    return (
-        <View>
-            <Text style={styles.tabText}>{name}</Text>
-        </View>
-    )
-}
+const Tab = createBottomTabNavigator();
 
 export default function Navigation() {
-    return (
-        <View style={styles.container}>
-            <TabItem name='Inicio' icon="icon" />
-            <TabItem name='Rutina' icon="icon" />
-            <TabItem name='Progreso' icon="icon" />
-        </View>
-    )
+  return (
+    <NavigationContainer>
+      <Tab.Navigator
+        screenOptions={{
+          tabBarStyle: {
+            backgroundColor: theme.color.black,
+            height: 90,
+          },
+          tabBarShowLabel: false,
+        }}
+      >
+        <Tab.Screen
+          name="Inicio"
+          component={Home}
+          options={{
+            tabBarIcon: ({ focused }) => {
+              return (
+                <TabItem
+                  focused={focused}
+                  name="Inicio"
+                  icon={require("../../../assets/home.png")}
+                />
+              );
+            },
+          }}
+        />
+        <Tab.Screen
+          name="Rutinas"
+          component={Routines}
+          options={{
+            tabBarIcon: ({ focused }) => {
+              return (
+                <TabItem
+                  focused={focused}
+                  name="Rutinas"
+                  icon={require("../../../assets/routine.png")}
+                />
+              );
+            },
+          }}
+        />
+        <Tab.Screen
+          name="Progreso"
+          component={Progress}
+          options={{
+            tabBarIcon: ({ focused }) => {
+              return (
+                <TabItem
+                  focused={focused}
+                  name="Progreso"
+                  icon={require("../../../assets/progress.png")}
+                />
+              );
+            },
+          }}
+        />
+      </Tab.Navigator>
+    </NavigationContainer>
+  );
 }
-
-const styles = StyleSheet.create({
-    container: {
-        backgroundColor: theme.color.black,
-        flexDirection: "row",
-        justifyContent: "space-around"
-    },
-    tabText: {
-        color: theme.color.white
-    }
-})
