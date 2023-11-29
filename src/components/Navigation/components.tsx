@@ -32,7 +32,7 @@ export function TabItem(props: TabItemI) {
 
 const styles = StyleSheet.create({
   container: {
-    width: "70%",
+    width: "80%",
     alignItems: "center",
     justifyContent: "center",
     top: 10,

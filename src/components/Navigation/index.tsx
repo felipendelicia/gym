@@ -1,11 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Home from "../../Screens/Home";
 import Routines from "../../Screens/Routines";
 import Progress from "../../Screens/Progress";
 import theme from "../../theme";
-import { Image, View, Text } from "react-native";
 import { TabItem } from "./components";
 
 const Tab = createBottomTabNavigator();
@@ -22,6 +21,7 @@ export default function Navigation() {
           },
           tabBarShowLabel: false,
           //headerShown: false,
+          tabBarHideOnKeyboard: true,
         }}
       >
         <Tab.Screen
