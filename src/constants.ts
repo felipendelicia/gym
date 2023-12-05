@@ -63,3 +63,7 @@ export const MUSCULAR_GROUPS = {
 export function getMuscularGroupNames() {
   return Object.values(MUSCULAR_GROUPS).map(item => item.name);
 }
+
+export function getMuscleNames() {
+  return Object.values(MUSCLES).map(item => item.name);
+}

@@ -3,6 +3,8 @@ import TabContainer from '../../components/TabContainer'
 import OpenSelectButton from '../../components/OpenSelectButton'
 import { Exercise } from '../../types'
 import Select from '../../components/Select'
+import { AddButton } from '../../components/AddButton'
+import StyledText from '../../components/StyledText'
 
 export default function AddExerciseToRoutine({ navigation }: any) {
 
@@ -21,7 +23,10 @@ export default function AddExerciseToRoutine({ navigation }: any) {
 
     return (
         <TabContainer>
-            <OpenSelectButton title="Ejercicios" selectedItem={exercise?.name} onTouch={() => handleOpenSelect()} />
+            <StyledText bold big>
+                Añadir ejercicio
+            </StyledText>
+            <OpenSelectButton title="Ejercicio" selectedItem={exercise?.name} onTouch={() => handleOpenSelect()} />
             {
                 isSelect
                     ? <Select
@@ -32,6 +37,7 @@ export default function AddExerciseToRoutine({ navigation }: any) {
                         close={() => handleCloseSelect()} />
                     : <></>
             }
+            <AddButton action={()=>null}/>
         </TabContainer>
     )
 }

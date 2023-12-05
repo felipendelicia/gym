@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import StyledModal from "../StyledModal";
 import StyledText from "../StyledText";
 import { ScrollView, StyleSheet } from "react-native";
@@ -8,17 +8,31 @@ import { TouchableOpacity } from "react-native";
 
 interface ISelect {
   title: string,
-  setItem: (item: string) => void
+  setItem: (item: any) => void
   items: string[],
   create?: () => void,
-  close: () => void
+  close: () => void,
+  multipleChoice?: boolean,
+  selectedItems?: string[]
 }
 
-export default function Select({ title, setItem, items, close, create }: ISelect) {
-
+export default function Select({ title, setItem, items, close, create, multipleChoice, selectedItems }: ISelect) {
   const handleTouch = (item: string) => {
-    setItem(item)
-    close()
+    
+    if (multipleChoice != true) {
+      setItem(item)
+      close()
+    }
+    else {
+      const isSelected = selectedItems?.includes(item)
+      if (isSelected) {
+        const newSelectedItems = selectedItems?.filter(legacyItem => legacyItem != item);
+        setItem(newSelectedItems)
+      } else {
+        const newSelectedItems = selectedItems?.concat([item])
+        setItem(newSelectedItems)
+      }
+    }
   }
 
   const handleCreateTouch = () => {
@@ -33,7 +47,7 @@ export default function Select({ title, setItem, items, close, create }: ISelect
         {
           items.map((item, i) => {
             return (
-              <RenderItem item={item} key={i} onTouch={(item: string) => handleTouch(item)} />
+              <RenderItem isSelected={selectedItems && selectedItems.includes(item)} item={item} key={i} onTouch={(item: string) => handleTouch(item)} />
             )
           })
         }
@@ -46,7 +60,7 @@ export default function Select({ title, setItem, items, close, create }: ISelect
           : <></>
       }
       <TouchableOpacity onPress={() => close()} style={styles.cancel_button}>
-        <StyledText centered bold >Cancelar</StyledText>
+        <StyledText centered bold >Aceptar</StyledText>
       </TouchableOpacity>
     </StyledModal>
   )
