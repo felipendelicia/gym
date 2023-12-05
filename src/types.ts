@@ -1,5 +1,20 @@
-interface Routine {
+export interface Routine {
   name: string;
-  muscle_group: string;
   exercises: any[];
+}
+
+export interface RoutineExercise {
+  exercise: Exercise,
+  sets: Set[],
+  description?: string
+}
+
+export interface Exercise {
+  name: string;
+  mainMuscle: string,
+  extraMuscles: string[]
+}
+
+export interface Set {
+  reps: number
 }

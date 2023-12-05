@@ -53,9 +53,13 @@ export const MUSCLES = {
 };
 
 export const MUSCULAR_GROUPS = {
-  back: {},
-  chest: {},
-  legs: {},
-  arms: {},
-  core: {},
+  back: { name: "Espalda" },
+  chest: { name: "Pecho" },
+  legs: { name: "Piernas" },
+  arms: { name: "Brazos" },
+  core: { name: "Core" },
 };
+
+export function getMuscularGroupNames() {
+  return Object.values(MUSCULAR_GROUPS).map(item => item.name);
+}

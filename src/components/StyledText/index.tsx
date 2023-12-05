@@ -10,6 +10,7 @@ interface IStyledText {
   big?: boolean;
   small?: boolean;
   light?: boolean;
+  centered?: boolean;
   aditionalStyles?: any;
 }
 
@@ -20,6 +21,7 @@ export default function StyledText({
   big,
   small,
   light,
+  centered,
   aditionalStyles,
 }: IStyledText) {
   const textStyles = [
@@ -29,6 +31,7 @@ export default function StyledText({
     big && styles.big,
     small && styles.small,
     light && styles.light,
+    centered && styles.centered,
     aditionalStyles,
   ];
 
@@ -73,4 +76,7 @@ const styles = StyleSheet.create({
   light: {
     fontFamily: "ubuntu-light",
   },
+  centered: {
+    textAlign: "center"
+  }
 });

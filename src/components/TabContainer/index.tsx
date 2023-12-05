@@ -2,7 +2,7 @@ import { SafeAreaView, ScrollView, StyleSheet, View } from "react-native";
 import React from "react";
 import theme from "../../theme";
 
-export default function TabContainer({ children }: { children: any }) {
+export default function TabContainer({ children }: { children: any | null | undefined }) {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>

@@ -2,7 +2,7 @@ import { TouchableOpacity, StyleSheet } from "react-native";
 import StyledText from "../StyledText";
 import theme from "../../theme";
 
-export function AddRoutine({ action }: { action: () => void }) {
+export function AddButton({ action }: { action: () => void }) {
   return (
     <TouchableOpacity onPress={action} style={styles.touchable}>
       <StyledText bold big>
